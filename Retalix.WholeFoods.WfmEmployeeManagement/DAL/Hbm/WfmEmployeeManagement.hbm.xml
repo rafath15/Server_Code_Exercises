@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   namespace="Retalix.WholeFoods.WfmEmployeeManagement.BusinessComponents"
+                   assembly="Retalix.WholeFoods.WfmEmployeeManagement">
+
+	<class name="WfmEmployeeManagementType" table="EmployeeManagement" lazy="false">
+
+		<id name="Id" column="Id" type="int"/>
+		<property name="Name" type="string"/>
+		<property name="ProjectName" type="string"/>
+		<property name="Email" type="string"/>
+		<property name="MobileNumber" type="string"/>
+	</class>
+	<query name="EmployeeData">
+		from WfmEmployeeManagementType emp
+	</query>
+	<query name="EmployeeDataById">
+		from WfmEmployeeManagementType  emp
+		where
+		(emp.Id = :Id)
+	</query>
+	<query name="WfmEmployeeManagementLookUpByCriteria1">
+		from WfmEmployeeManagementType  emp
+		where
+		(emp.Id = :Id) AND
+		(emp.Name like Concat ('%',:Name ,'%')) AND
+		(emp.ProjectName like Concat ('%',:ProjectName ,'%'))
+	</query>
+
+	<query name="WfmEmployeeManagementLookUpByCriteria2">
+		from WfmEmployeeManagementType  emp
+		where
+		(emp.Id = :Id) AND
+		(emp.Name like Concat ('%',:Name ,'%'))
+	</query>
+
+	<query name="WfmEmployeeManagementLookUpByCriteria3">
+		from WfmEmployeeManagementType  emp
+		where
+		(emp.Id = :Id) AND
+		(emp.ProjectName like Concat ('%',:ProjectName ,'%'))
+	</query>
+
+	<query name="WfmEmployeeManagementLookUpByCriteria4">
+		from WfmEmployeeManagementType  emp
+		where
+		(emp.Name like Concat ('%',:Name ,'%')) AND
+		(emp.ProjectName like Concat ('%',:ProjectName ,'%'))
+	</query>
+
+	<query name="WfmEmployeeManagementLookUpByCriteria5">
+		from WfmEmployeeManagementType  emp
+		where
+		(emp.Id = :Id) OR
+		(emp.Name like Concat ('%',:Name ,'%')) OR
+		(emp.ProjectName like Concat ('%',:ProjectName ,'%'))
+	</query>
+	
+</hibernate-mapping>

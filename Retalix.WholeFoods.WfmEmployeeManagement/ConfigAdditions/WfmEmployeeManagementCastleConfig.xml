@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<castle>
+	<components>
+		<component id="Retalix.WholeFoods.WfmEmployeeManagement"
+								service="Retalix.StoreServices.Connectivity.Manager.Config.IDataAccessParticipants, Retalix.StoreServices.Connectivity.Manager"
+								type="Retalix.StoreServices.Connectivity.Manager.Config.DataAccessParticipantsByXml, Retalix.StoreServices.Connectivity.Manager">
+			<parameters>
+				<participantsXml>
+					<DataAccessAssemblies>
+						<DataAccessAssembly AssemblyName="Retalix.WholeFoods.WfmEmployeeManagement"/>
+					</DataAccessAssemblies>
+				</participantsXml>
+			</parameters>
+		</component>
+
+		<!--Visitors-->
+		<component id="WfmEmployeeManagementTLogWriter"
+		           service="Retalix.WholeFoods.WfmEmployeeManagement.Model.IWfmEmployeeManagementTLogWriter, Retalix.WholeFoods.WfmEmployeeManagement"
+		           type="Retalix.WholeFoods.WfmEmployeeManagement.Visitor.WfmEmployeeManagementTLogWriter, Retalix.WholeFoods.WfmEmployeeManagement"/>
+
+		<component id="WfmEmployeeManagementTLogVisitor"
+		           service="Retalix.StoreServices.Model.Selling.RetailTransaction.RetailTransactionLog.IRetailTransactionLogDocumentCreationVisitor, Retalix.StoreServices.Model"
+		           type="Retalix.WholeFoods.WfmEmployeeManagement.Visitor.WfmEmployeeManagementTLogVisitor, Retalix.WholeFoods.WfmEmployeeManagement"/>
+
+		<!-- Services -->
+
+
+		<component id="WfmEmployeeManagementMaintenanceService"
+				service="Retalix.StoreServices.Model.Infrastructure.Service.IBusinessService, Retalix.StoreServices.Model"
+				type="Retalix.WholeFoods.WfmEmployeeManagement.BusinessServices.WfmEmployeeManagementMaintenanceService, Retalix.WholeFoods.WfmEmployeeManagement"/>
+
+		<component id="WfmEmployeeManagementLookUpService"
+				service="Retalix.StoreServices.Model.Infrastructure.Service.IBusinessService, Retalix.StoreServices.Model"
+				type="Retalix.WholeFoods.WfmEmployeeManagement.BusinessServices.WfmEmployeeManagementLookUpService, Retalix.WholeFoods.WfmEmployeeManagement"/>
+
+
+		<!-- Dao -->
+		<component id="EmployeeManagementDao"
+						service="Retalix.WholeFoods.WfmEmployeeManagement.Model.IWfmEmployeeManagementDao, Retalix.WholeFoods.WfmEmployeeManagement"
+						type="Retalix.WholeFoods.WfmEmployeeManagement.DAL.EmployeeManagementDao, Retalix.WholeFoods.WfmEmployeeManagement"/>
+
+		
+		<component id="WfmEmployeeManagementFactory"
+		           service="Retalix.WholeFoods.WfmEmployeeManagement.Model.IWfmEmployeeManagementFactory, Retalix.WholeFoods.WfmEmployeeManagement"
+		           type="Retalix.WholeFoods.WfmEmployeeManagement.DAL.WfmEmployeeManagementFactory, Retalix.WholeFoods.WfmEmployeeManagement"/>
+
+		<!-- components -->
+		<component id="WfmEmployeeManagementLookUp"
+						service="Retalix.WholeFoods.WfmEmployeeManagement.Model.IWfmEmployeeManagementLookUp, Retalix.WholeFoods.WfmEmployeeManagement"
+						type="Retalix.WholeFoods.WfmEmployeeManagement.BusinessComponents.WfmEmployeeManagementLookUp, Retalix.WholeFoods.WfmEmployeeManagement"/>
+
+
+
+		<component id="WfmEmployeeManagementMaintenance"
+						service="Retalix.WholeFoods.WfmEmployeeManagement.Model.IWfmEmployeeManagementMaintenance, Retalix.WholeFoods.WfmEmployeeManagement"
+						type="Retalix.WholeFoods.WfmEmployeeManagement.BusinessComponents.WfmEmployeeManagementMaintenance, Retalix.WholeFoods.WfmEmployeeManagement"/>
+
+
+
+	</components>
+</castle>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C975283-A5D1-413C-9D72-B7A298F79FC4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Retalix.WholeFoods.WfmEmployeeManagement</RootNamespace>
+    <AssemblyName>Retalix.WholeFoods.WfmEmployeeManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=2.1.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NHibernate">
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net, Version=2.0.0.640, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.Contract.Schemas, Version=22.200.999.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\Retalix.Contract.Schemas.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.Contracts">
+      <HintPath>..\..\..\Libs\Retalix\Contracts\Retalix.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.DPOS.SystemIntegrity">
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\Retalix.DPOS.SystemIntegrity.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.StoreServices.Infrastructure">
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\Retalix.StoreServices.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.StoreServices.Infrastructure.NHibernate">
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\Retalix.StoreServices.Infrastructure.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.StoreServices.Model">
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\Retalix.StoreServices.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.StoreServices.Model.Private">
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\Retalix.StoreServices.Model.Private.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.StoreServices.Model.Private.XmlSerializers">
+      <HintPath>..\..\..\Libs\Retalix\StoreServer\Retalix.StoreServices.Model.Private.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.WholeFoods.Common">
+      <HintPath>..\..\..\Output\Debug\Product\Retalix.WholeFoods.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.WholeFoods.Common.Services">
+      <HintPath>..\..\..\Output\Debug\Product\Retalix.WholeFoods.Common.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.WholeFoods.Contracts, Version=30.100.999.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Retalix\Contracts\Retalix.WholeFoods.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Retalix.Wholefoods.Utils, Version=30.100.999.107, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Output\Debug\Product\Retalix.Wholefoods.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessComponents\WfmEmployeeManagementType.cs" />
+    <Compile Include="BusinessComponents\WfmEmployeeManagementLookUp.cs" />
+    <Compile Include="BusinessComponents\WfmEmployeeManagementMaintenance.cs" />
+    <Compile Include="BusinessServices\WfmEmployeeManagementLookUpService.cs" />
+    <Compile Include="BusinessServices\WfmEmployeeManagementMaintenanceService.cs" />
+    <Compile Include="DAL\WfmEmployeeManagementDto.cs" />
+    <Compile Include="DAL\WfmEmployeeManagementFactory.cs" />
+    <Compile Include="DAL\EmployeeManagementDao.cs" />
+    <Compile Include="DMS\WfmEmployeeManagementDtoDms.cs" />
+    <Compile Include="DMS\WfmEmployeeManagementDtoMapper.cs" />
+    <Compile Include="DMS\WfmEmployeeManagementServiceResolver.cs" />
+    <Compile Include="Exceptions\WfmEmployeeManagementException.cs" />
+    <Compile Include="Model\IWfmEmployeeManagement.cs" />
+    <Compile Include="Model\IWfmEmployeeManagementDao.cs" />
+    <Compile Include="Model\IWfmEmployeeManagementLookUp.cs" />
+    <Compile Include="Model\IWfmEmployeeManagementMaintenance.cs" />
+    <Compile Include="Model\IWfmEmployeeManagementFactory.cs" />
+    <Compile Include="Model\IWfmEmployeeManagementTLogWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visitor\WfmEmployeeManagementTLogWriter.cs" />
+    <Compile Include="Visitor\WfmEmployeeManagementTLogVisitor.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ConfigAdditions\WfmEmployeeManagementCastleConfig.xml" />
+    <EmbeddedResource Include="DAL\Hbm\WfmEmployeeManagement.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

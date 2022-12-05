@@ -1,0 +1,1 @@
+C:\Dev\WholeFoods\SERVER_EXT_22_2_X\App\Src\POS\Retalix.WholeFoods.WfmEmployeeManagement\obj\Release\Retalix.WholeFoods.WfmEmployeeManagement.csprojResolveAssemblyReference.cache
