@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://retalix.com/R10/services" targetNamespace="http://retalix.com/R10/services" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="..\..\..\..\Libs\Retalix\Contracts\Schemas\Common\RetalixCommonHeader.xsd"/>
+  <xs:include schemaLocation="EmployeeManagement.xsd"/>
+  <xs:element name="WfmEmployeeManagementLookUpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header" type="RetalixCommonHeaderType" minOccurs="0"/>
+        <xs:element name="EmployeeManagement" type="EmployeeManagementType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://retalix.com/R10/services"
+           targetNamespace="http://retalix.com/R10/services"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+	<xs:include schemaLocation="..\..\..\..\Libs\Retalix\Contracts\Schemas\Common\ActionTypeCodes.xsd"/>
+	<xs:element name="EmployeeManagement" type="EmployeeManagementType"/>
+	<xs:complexType name="EmployeeManagementType">
+		<xs:sequence>
+			<xs:element name="Id" type="xs:int"/>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="ProjectName" type="xs:string"/>
+			<xs:element name="Email" type="xs:string"/>
+			<xs:element name="MobileNumber" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="Action" type="ActionTypeCodes"/>
+</xs:complexType>
+</xs:schema>
