@@ -35,7 +35,7 @@ namespace Retalix.WholeFoods.WfmEmployeeManagement.DAL
             {
                 if (employee.Id == 0)
                 {
-                    throw new WfmEmployeeManagementException("Employee with Id as 0 cannot be added", "Id is 0");
+                    throw new WfmEmployeeManagementException("Employee with Id as 0 cannot be added", "WfmEmployeeManagementException");
                 }
                 _sessionProvider.Session.Save(employee);
                 _sessionProvider.Session.Flush();
@@ -45,7 +45,7 @@ namespace Retalix.WholeFoods.WfmEmployeeManagement.DAL
                 var sqlException = exception.InnerException;
                 if (sqlException != null && sqlException is SqlException && sqlException.ToString().Contains(DuplicateKeyError))
                 {
-                    throw new WfmEmployeeManagementException("Employee with same id already exists", "Id exists");
+                    throw new WfmEmployeeManagementException("Employee with same id already exists", "WfmEmployeeManagementException");
                 }
                 throw;
             }
@@ -64,12 +64,12 @@ namespace Retalix.WholeFoods.WfmEmployeeManagement.DAL
             var item = GetById(id);
             if (item == null)
             {
-                throw new WfmEmployeeManagementException("Employee data was not found", "Id not found");
+                throw new WfmEmployeeManagementException("Employee data was not found", "WfmEmployeeManagementException");
             }
-            item.Name = employee.Name;
-            item.ProjectName = employee.ProjectName;
-            item.Email = employee.Email;
-            item.MobileNumber = employee.MobileNumber;
+            item.Name = string.IsNullOrEmpty(employee.Name)?item.Name: employee.Name;
+            item.ProjectName = string.IsNullOrEmpty(employee.ProjectName) ? item.ProjectName: employee.ProjectName;
+            item.Email = string.IsNullOrEmpty(employee.Email)? item.Email :employee.Email;
+            item.MobileNumber = string.IsNullOrEmpty(employee.MobileNumber)? item.MobileNumber: employee.MobileNumber;
 
             _sessionProvider.Session.SaveOrUpdate(item);
         }
@@ -126,7 +126,7 @@ namespace Retalix.WholeFoods.WfmEmployeeManagement.DAL
             }
             else
             {
-               throw new WfmEmployeeManagementException(" Employee Data not found","Data not found");
+               throw new WfmEmployeeManagementException(" Employee Data not found", "WfmEmployeeManagementException");
             }
         }
         #endregion
