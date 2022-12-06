@@ -42,7 +42,7 @@ namespace Retalix.WholeFoods.WfmEmployeeManagement.BusinessServices
                     _iEmployeeManagementMaintenance.Add(employeeManagement);
                     break;
                 case ActionTypeCodes.Update:
-                    ValidateBeforeSaving(employeeManagement);
+                    ValidateBeforeUpdating(employeeManagement);
                     _iEmployeeManagementMaintenance.Update(employeeManagement);
                     break;
                 case ActionTypeCodes.Delete:
@@ -56,29 +56,37 @@ namespace Retalix.WholeFoods.WfmEmployeeManagement.BusinessServices
 
         private void ValidateBeforeDeleting(BusinessComponents.WfmEmployeeManagementType employeeManagement)
         {
-            if (employeeManagement.Name == null)
+            if (employeeManagement.Id == 0)
             {
                 Log.Error(string.Format("There is no Employee to delete"));
-                throw new WfmEmployeeManagementException("Employee details are not found", "Id not found");
+                throw new WfmEmployeeManagementException("Employee details are not found", "WfmEmployeeManagementException");
             }
         }
 
         private void ValidateBeforeSaving(BusinessComponents.WfmEmployeeManagementType employeeManagement)
         {
-            if (employeeManagement == null)
+            if (employeeManagement.Id==0)
             {
-                Log.Error(string.Format("There is no EmployeeData to save"));
-                throw new WfmEmployeeManagementException("There is no EmployeeData to save","Id not found");
+                Log.Error(string.Format("Employee Id is missing"));
+                throw new WfmEmployeeManagementException("Id is a mandatory field", "WfmEmployeeManagementException");
             }
             if (employeeManagement.Name == null)
             {
                 Log.Error(string.Format("Employee Name is missing"));
-                throw new WfmEmployeeManagementException("Employee Name is missing","Name Missing");
+                throw new WfmEmployeeManagementException("Name is a mandatory field", "WfmEmployeeManagementException");
             }
             if (employeeManagement.ProjectName == null)
             {
                 Log.Error(string.Format("Project Name is missing"));
-                throw new WfmEmployeeManagementException("Project Name is missing","ProjectName Missing");
+                throw new WfmEmployeeManagementException("Project Name is a mandatory field", "WfmEmployeeManagementException");
+            }
+        }
+        private void ValidateBeforeUpdating(BusinessComponents.WfmEmployeeManagementType employeeManagement)
+        {
+            if (employeeManagement.Id == 0)
+            {
+                Log.Error(string.Format("There is no EmployeeData to save"));
+                throw new WfmEmployeeManagementException("There is no EmployeeData to save", "WfmEmployeeManagementException");
             }
         }
         private void MapContractToModel(EmployeeManagementType employeeManagementType, BusinessComponents.WfmEmployeeManagementType employeeManagement)
